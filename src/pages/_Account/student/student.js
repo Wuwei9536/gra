@@ -146,7 +146,7 @@ class Student extends React.Component {
 
   // modal ok
   handleOk = (e) => {
-    const {form} = this.props;
+    const { form } = this.props;
     form.validateFields({ force: true }, (err, values) => {
       if (!err) {
         this.setState({
@@ -201,6 +201,8 @@ class Student extends React.Component {
     const { modelId } = this.state;
     const { dispatch, form } = this.props;
     const stu_name = form.getFieldValue('modalName') || undefined;
+    const spell = form.getFieldValue('modalSpell') || undefined;
+    const classSpell = form.getFieldValue('classSpell') || undefined;
     const academy = form.getFieldValue('modalAcademy') || undefined;
     const class_grade = form.getFieldValue('modalClassGrade') || undefined;
     const stu_num = form.getFieldValue('modalStuNumber') || undefined;
@@ -215,6 +217,8 @@ class Student extends React.Component {
           academy,
           class_grade,
           stu_num,
+          spell,
+          classSpell,
           selectName,
           selectClassGrade
         }
@@ -227,6 +231,8 @@ class Student extends React.Component {
           academy,
           class_grade,
           stu_num,
+          spell,
+          classSpell,
           selectName,
           selectClassGrade
         }
@@ -253,13 +259,7 @@ class Student extends React.Component {
           </Col>
           <Col md={6} sm={18}>
             <FormItem label="班级">
-              {getFieldDecorator('classGrade')(
-                <Select placeholder="请选择" style={{ width: '100%' }}>
-                  <Option value="0">正常</Option>
-                  <Option value="1">警告</Option>
-                  <Option value="2">危险</Option>
-                </Select>
-              )}
+              {getFieldDecorator('classGrade')(<Input placeholder="请输入" />)}
             </FormItem>
           </Col>
           <Col md={12} sm={36}>
@@ -304,68 +304,102 @@ class Student extends React.Component {
         onOk={this.handleOk}
         onCancel={this.handleCancel}
       >
-        <Form layout="inline" style={{ display: 'flex' }}>
+        <Form layout="inline">
           {this.state.isUpdate ?
             <>
-              <FormItem label="姓名">
-                {getFieldDecorator('modalName',{required:false})(<Input placeholder="请输入" />)}
-              </FormItem>
-              <FormItem label="学院">
-                {getFieldDecorator('modalAcademy')(<Input placeholder="请输入" />)}
-              </FormItem>
-              <FormItem label="班级">
-                {getFieldDecorator('modalClassGrade')(<Input placeholder="请输入" />)}
-              </FormItem>
-              <FormItem label="学号">
-                {getFieldDecorator('modalStuNumber')(<InputNumber placeholder="请输入" />)}
-              </FormItem>
+              <div style={{ display: 'flex' }}>
+                <FormItem label="姓名">
+                  {getFieldDecorator('modalName', { required: false })(<Input placeholder="请输入" />)}
+                </FormItem>
+                <FormItem label="姓名拼音">
+                  {getFieldDecorator('modalSpell', { required: false })(<Input placeholder="请输入" />)}
+                </FormItem>
+                <FormItem label="学院">
+                  {getFieldDecorator('modalAcademy')(<Input placeholder="请输入" />)}
+                </FormItem>
+              </div>
+              <div style={{ display: 'flex' }}>
+                <FormItem label="班级">
+                  {getFieldDecorator('modalClassGrade')(<Input placeholder="请输入" />)}
+                </FormItem>
+                <FormItem label="班级拼音">
+                  {getFieldDecorator('classSpell')(<Input placeholder="请输入" />)}
+                </FormItem>
+                <FormItem label="学号">
+                  {getFieldDecorator('modalStuNumber')(<InputNumber placeholder="请输入" />)}
+                </FormItem>
+              </div>
             </>
             :
             <>
-              <FormItem label="姓名">
-                {getFieldDecorator('modalName', {
-                  rules: [
-                    {
-                      required: true,
-                      message: formatMessage({ id: 'validation.required' }),
-                    },
-                  ],
-                })(<Input placeholder="请输入" />)}
-              </FormItem>
-              <FormItem label="学院">
-                {getFieldDecorator('modalAcademy', {
-                  rules: [
-                    {
-                      required: true,
-                      message: formatMessage({ id: 'validation.required' }),
-                    },
-                  ],
-                })(<Input placeholder="请输入" />)}
-              </FormItem>
-              <FormItem label="班级">
-                {getFieldDecorator('modalClassGrade', {
-                  rules: [
-                    {
-                      required: true,
-                      message: formatMessage({ id: 'validation.required' }),
-                    },
-                  ],
-                })(<Input placeholder="请输入" />)}
-              </FormItem>
-              <FormItem label="学号">
-                {getFieldDecorator('modalStuNumber', {
-                  rules: [
-                    {
-                      required: true,
-                      message: formatMessage({ id: 'validation.required' }),
-                    },
-                    {
-                      type: 'number',
-                      message: formatMessage({ id: 'validation.number.required' }),
-                    },
-                  ],
-                })(<InputNumber  placeholder="请输入" />)}
-              </FormItem>
+              <div style={{ display: 'flex' }}>
+                <FormItem label="姓名">
+                  {getFieldDecorator('modalName', {
+                    rules: [
+                      {
+                        required: true,
+                        message: formatMessage({ id: 'validation.required' }),
+                      },
+                    ],
+                  })(<Input placeholder="请输入" />)}
+                </FormItem>
+                <FormItem label="姓名拼音">
+                  {getFieldDecorator('modalSpell', {
+                    rules: [
+                      {
+                        required: true,
+                        message: formatMessage({ id: 'validation.required' }),
+                      },
+                    ],
+                  })(<Input placeholder="请输入" />)}
+                </FormItem>
+                <FormItem label="学院">
+                  {getFieldDecorator('modalAcademy', {
+                    rules: [
+                      {
+                        required: true,
+                        message: formatMessage({ id: 'validation.required' }),
+                      },
+                    ],
+                  })(<Input placeholder="请输入" />)}
+                </FormItem>
+              </div>
+              <div style={{ display: 'flex' }}>
+                <FormItem label="班级">
+                  {getFieldDecorator('modalClassGrade', {
+                    rules: [
+                      {
+                        required: true,
+                        message: formatMessage({ id: 'validation.required' }),
+                      },
+                    ],
+                  })(<Input placeholder="请输入" />)}
+                </FormItem>
+                <FormItem label="班级拼音">
+                  {getFieldDecorator('classSpell', {
+                    rules: [
+                      {
+                        required: true,
+                        message: formatMessage({ id: 'validation.required' }),
+                      },
+                    ],
+                  })(<Input placeholder="请输入" />)}
+                </FormItem>
+                <FormItem label="学号">
+                  {getFieldDecorator('modalStuNumber', {
+                    rules: [
+                      {
+                        required: true,
+                        message: formatMessage({ id: 'validation.required' }),
+                      },
+                      {
+                        type: 'number',
+                        message: formatMessage({ id: 'validation.number.required' }),
+                      },
+                    ],
+                  })(<InputNumber placeholder="请输入" />)}
+                </FormItem>
+              </div>
             </>}
 
         </Form>

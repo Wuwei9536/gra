@@ -47,7 +47,7 @@ export default {
   'menu.dashboard.cpu': 'CPU管理',
   'menu.dashboard.storage': '内存管理',
   'menu.dashboard.disk': '磁盘管理',
-  'menu.dashboard.software': '软件管理',
+  'menu.dashboard.network': '网络管理',
   'menu.account': '用户管理',
   'menu.account.system': '系统用户管理',
   'menu.account.student': '学生用户管理',

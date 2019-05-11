@@ -245,3 +245,15 @@ export async function sendRegisterEmail(params){
     data: params,
   });
 }
+
+
+// 网络
+export async function fetchNetwork(params) {
+  return request(`/api/getnetwork?${stringify(params)}`);
+  }
+
+//登出
+
+export async function logout() {
+  return request('/api/logout');
+  }

@@ -75,21 +75,29 @@ class Cpu extends React.Component {
         });
     }
 
+    componentWillUnmount(){
+        const { dispatch } = this.props;
+        dispatch({
+            type: 'cpu/setPercent',
+            payload: null
+        });
+    }
+
     judgeRoute = (pathname) => {
         switch (pathname) {
             case '/dashboard/cpu':
                 this.setState({
-                    waveTitle: 'cpu剩余容量'
+                    waveTitle: 'cpu已使用容量'
                 })
                 break;
             case '/dashboard/storage':
                 this.setState({
-                    waveTitle: '内存剩余容量'
+                    waveTitle: '内存已使用容量'
                 })
                 break;
             case '/dashboard/disk':
                 this.setState({
-                    waveTitle: '磁盘剩余容量'
+                    waveTitle: '磁盘已使用容量'
                 })
                 break;
             default:
@@ -109,12 +117,18 @@ class Cpu extends React.Component {
 
     // 点击下拉列表选择设备
     changeEquipment = (e, id) => {
-        const { dispatch } = this.props;
+        const { dispatch,location } = this.props;
+        const { pathname } = location; // 路由参数 无参数时query={}
         dispatch({
             type: 'cpu/fetchCpuData',
             payload: {
-                id
+                id,
+                pathname
             }
+        });
+        dispatch({
+            type: 'cpu/setPercent',
+            payload: null
         });
     }
 
@@ -136,7 +150,7 @@ class Cpu extends React.Component {
                             name="cpu"
                             label={{
                                 formatter: val => {
-                                    return val * 100 + '%';
+                                    return val + '%';
                                 }
                             }}
                         />
@@ -150,14 +164,15 @@ class Cpu extends React.Component {
                     </Chart>
                 </div>
                 <div className={style.tableWaterWave}>
-                    <div style={{ textAlign: 'center' }}>
-                        <WaterWave
-                            height={261}
-                            title={waveTitle}
-                            percent={percent}
-                            className={style.waterWave}
-                        />
-                    </div>
+                    {percent ?
+                        <div style={{ textAlign: 'center' }}>
+                            <WaterWave
+                                height={261}
+                                title={waveTitle}
+                                percent={percent}
+                                className={style.waterWave}
+                            />
+                        </div> : null}
                     <Table columns={columns} dataSource={data} pagination={{ pageSize: 6 }} className={style.table} />
                 </div>
             </Card>

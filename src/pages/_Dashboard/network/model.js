@@ -1,23 +1,19 @@
-import { fetchSoftware,fetchEquipmentData } from '@/services/api';
+import { fetchNetwork, fetchEquipmentData } from '@/services/api';
 
 export default {
-  namespace: 'software',
+  namespace: 'network',
 
   state: {
-    data: [{
-      key: '1',
-      name: 'John Brown',
-      catalogue: '12%',
-      group: 32,
-    }],
+    data: [{x:null}],
     equipment: [],
     defaultEquipment: '',
   },
 
   effects: {
-    *fetchSoftware({ payload }, { call, put }) {
-      const equipment = yield call(fetchEquipmentData,{}); //获取设备列表
-      if (!payload) { //如果路由没有参数
+    *fetchNetwork({ payload }, { call, put }) {
+      const equipment = yield call(fetchEquipmentData, {}); //获取设备列表
+      const { id } = payload;
+      if (!id) { //如果路由没有参数
         payload = { id: equipment[0].key } //参数就等于设备列表第一个的id
         yield put({ //设备默认显示设备为设备列表第一个
           type: 'setDefaultEquipment',
@@ -33,10 +29,18 @@ export default {
           }
         }
       }
-      const response = yield call(fetchSoftware, payload);
+      const response = yield call(fetchNetwork, payload);
+      let resData = [{x:null}]
+      if (response.length > 0) {
+        resData = response.map(item=>({
+          x:item.create_time,
+          y1:item.receive_speed,
+          y2:item.transmit_speed
+        }))
+      }
       yield put({
-        type:'setSoftwareDate',
-        payload:response,
+        type: 'setNetworkDate',
+        payload: resData,
       })
       yield put({ //设置设备列表
         type: 'setEquipmentData',
@@ -46,7 +50,7 @@ export default {
   },
 
   reducers: {
-    setSoftwareDate(state, { payload }) {
+    setNetworkDate(state, { payload }) {
       return {
         ...state,
         data: payload,

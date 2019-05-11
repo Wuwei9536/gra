@@ -7,7 +7,7 @@ export default {
     data: [],
     equipment: [],
     defaultEquipment: '',
-    percent: 100,
+    percent: null,
     isShow: false
   },
 
@@ -53,8 +53,8 @@ export default {
         resData = response.map((item) => ({
           key: item.id,
           time: item.create_time,
-          cpu: item.usage_rate,
-          cpuPercent: item.usage_rate * 100 + '%',
+          cpu: item.usage,
+          cpuPercent: item.usage + '%',
           tableTime: new Date(item.create_time).toLocaleTimeString()
         }))
       }
@@ -78,7 +78,7 @@ export default {
       return {
         ...state,
         data: payload,
-        percent: payload.length > 0 ? payload[payload.length - 1].cpu * 100 : 100
+        percent: payload.length > 0 ? payload[payload.length - 1].cpu : 100
       };
     },
     setEquipmentData(state, { payload }) {
@@ -97,6 +97,12 @@ export default {
       return {
         ...state,
         isShow: payload
+      };
+    },
+    setPercent(state, { payload }) {
+      return {
+        ...state,
+        percent: payload
       };
     },
   },

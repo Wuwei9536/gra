@@ -37,7 +37,9 @@ export default {
         stu_name:payload.stu_name,
         academy:payload.academy,
         class_grade:payload.class_grade,
-        stu_num:payload.stu_num
+        stu_num:payload.stu_num,
+        spell:payload.spell,
+        classSpell:payload.classSpell
       });
       yield put({
         type: 'fetchStudentData',
@@ -52,7 +54,9 @@ export default {
         stu_name:payload.stu_name,
         academy:payload.academy,
         class_grade:payload.class_grade,
-        stu_num:payload.stu_num
+        stu_num:payload.stu_num,
+        spell:payload.spell,
+        classSpell:payload.classSpell
       });
       yield put({
         type: 'fetchStudentData',

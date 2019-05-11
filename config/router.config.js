@@ -50,9 +50,9 @@ export default [
             component: './_Dashboard/cpu/cpu.js',
           },
           {
-            path: '/dashboard/software',
-            name: 'software',
-            component: './_Dashboard/software/software.js',
+            path: '/dashboard/network',
+            name: 'network',
+            component: './_Dashboard/network/network.js',
           },
         ],
       },

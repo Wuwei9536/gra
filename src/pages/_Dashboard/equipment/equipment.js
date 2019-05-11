@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'dva';
 import router from 'umi/router';
+import { formatMessage, FormattedMessage } from 'umi-plugin-react/locale';
 import {
   Row,
   Col,
@@ -94,7 +95,7 @@ const columns = (deleteEquipment, showModal, navigate) => [{
       <Divider type="vertical" />
       <a href="javascript:;" onClick={() => navigate('/dashboard/disk', row.key)}>磁盘</a>
       <Divider type="vertical" />
-      <a href="javascript:;" onClick={() => navigate('/dashboard/software', row.key)}>软件</a>
+      <a href="javascript:;" onClick={() => navigate('/dashboard/network', row.key)}>网络</a>
     </span>
   ),
 }, {
@@ -133,10 +134,15 @@ class Equipment extends React.Component {
 
 
   handleOk = () => {
-    this.setState({
-      visible: false,
+    const { form } = this.props;
+    form.validateFields({ force: true }, (err, values) => {
+      if (!err) {
+        this.setState({
+          visible: false,
+        });
+        this.updateEquipment()
+      }
     });
-    this.updateEquipment()
   }
 
   handleCancel = (e) => {
@@ -166,19 +172,44 @@ class Equipment extends React.Component {
   updateEquipment = () => {
     const { modelId } = this.state;
     const { dispatch, form } = this.props;
-    const values = form.getFieldsValue();
+    // const values = form.getFieldsValue();
+    const equipmentName = form.getFieldValue('equipmentName') || undefined;
+    const ip = form.getFieldValue('modelIp') || undefined;
+    const nodeType = form.getFieldValue('nodeType') || undefined;
+    const cpuType = form.getFieldValue('cpuType') || undefined;
+    const cpuNum = form.getFieldValue('cpuNum') || undefined;
+    const disk = form.getFieldValue('disk') || undefined;
+    const storage = form.getFieldValue('storage') || undefined;
+    const agent = form.getFieldValue('agent') || undefined;
     if (modelId) {
       dispatch({
         type: 'equipment/updateEquipment',
         payload: {
           id: modelId,
-          ...values
+          // ...values
+          equipmentName,
+          ip,
+          nodeType,
+          cpuType,
+          cpuNum,
+          disk,
+          storage,
+          agent,
         }
       })
     } else {
       dispatch({
         type: 'equipment/createEquipment',
-        payload: values
+        payload: {
+          equipmentName,
+          ip,
+          nodeType,
+          cpuType,
+          cpuNum,
+          disk,
+          storage,
+          agent,
+        }
       })
     }
   }
@@ -193,10 +224,15 @@ class Equipment extends React.Component {
 
   fetchEquipmentData = () => {
     const { dispatch, form } = this.props;
-    const payload = form.getFieldsValue();
+    // const payload = form.getFieldsValue();
+    const name = form.getFieldValue('name') || undefined;
+    const ip = form.getFieldValue('ip') || undefined;
     dispatch({
       type: 'equipment/fetchEquipmentData',
-      payload
+      payload:{
+        name,
+        ip
+      }
     })
   }
 
@@ -248,34 +284,90 @@ class Equipment extends React.Component {
         <Form onSubmit={this.handleSearch} layout="inline">
           <div style={{ display: 'flex' }}>
             <FormItem label="服务器名称">
-              {getFieldDecorator('equipmentName')(<Input placeholder="请输入" />)}
+              {getFieldDecorator('equipmentName', {
+                    rules: [
+                      {
+                        required: true,
+                        message: formatMessage({ id: 'validation.required' }),
+                      },
+                    ],
+                  })(<Input placeholder="请输入" />)}
             </FormItem>
             <FormItem label="ip地址">
-              {getFieldDecorator('ip')(<Input placeholder="请输入" />)}
+              {getFieldDecorator('modelIp', {
+                    rules: [
+                      {
+                        required: true,
+                        message: formatMessage({ id: 'validation.required' }),
+                      },
+                    ],
+                  })(<Input placeholder="请输入" />)}
             </FormItem>
             <FormItem label="服务器类型">
-              {getFieldDecorator('nodeType')(<Input placeholder="请输入" />)}
+              {getFieldDecorator('nodeType', {
+                    rules: [
+                      {
+                        required: true,
+                        message: formatMessage({ id: 'validation.required' }),
+                      },
+                    ],
+                  })(<Input placeholder="请输入" />)}
             </FormItem>
           </div>
           <div style={{ display: 'flex' }}>
             <FormItem label="cpu型号">
-              {getFieldDecorator('cpuType')(<Input placeholder="请输入" />)}
+              {getFieldDecorator('cpuType', {
+                    rules: [
+                      {
+                        required: true,
+                        message: formatMessage({ id: 'validation.required' }),
+                      },
+                    ],
+                  })(<Input placeholder="请输入" />)}
             </FormItem>
             <FormItem label="cpu核数">
-              {getFieldDecorator('cpuNum')(<Input placeholder="请输入" />)}
+              {getFieldDecorator('cpuNum', {
+                    rules: [
+                      {
+                        required: true,
+                        message: formatMessage({ id: 'validation.required' }),
+                      },
+                    ],
+                  })(<Input placeholder="请输入" />)}
             </FormItem>
             <FormItem label="磁盘容量">
-              {getFieldDecorator('disk')(<Input placeholder="请输入" />)}
+              {getFieldDecorator('disk', {
+                    rules: [
+                      {
+                        required: true,
+                        message: formatMessage({ id: 'validation.required' }),
+                      },
+                    ],
+                  })(<Input placeholder="请输入" />)}
             </FormItem>
           </div>
           <div style={{ display: 'flex' }}>
             <FormItem label="内存">
-              {getFieldDecorator('storage')(<Input placeholder="请输入" />)}
+              {getFieldDecorator('storage', {
+                    rules: [
+                      {
+                        required: true,
+                        message: formatMessage({ id: 'validation.required' }),
+                      },
+                    ],
+                  })(<Input placeholder="请输入" />)}
             </FormItem>
             <FormItem label="是否安装agent">
-              {getFieldDecorator('agent')(
+              {getFieldDecorator('agent', {
+                    rules: [
+                      {
+                        required: true,
+                        message: formatMessage({ id: 'validation.required' }),
+                      },
+                    ],
+                  })(
                 <Select placeholder="请选择" style={{width:100}}>
-                  <Option value='1'>是</Option>
+                  <Option value="1">是</Option>
                   <Option value="0">否</Option>
                 </Select>
               )}

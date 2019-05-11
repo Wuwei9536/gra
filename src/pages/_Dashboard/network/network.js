@@ -24,7 +24,8 @@ import {
     Table,
     Tag,
 } from 'antd';
-import styles from './software.less';
+import styles from './network.less';
+import TimelineChart from '../../../components/Charts/TimelineChart'
 const FormItem = Form.Item;
 const { Step } = Steps;
 const { TextArea } = Input;
@@ -33,24 +34,28 @@ const RadioGroup = Radio.Group;
 
 
 const columns = () => [{
-    title: '软件名称',
-    dataIndex: 'softName',
-    key: 'softName',
+    title: '接受速率',
+    dataIndex: 'y1',
+    key: 'y2',
     align: 'center',
 }, {
-    title: '软件日志名',
-    dataIndex: 'logName',
-    key: 'logName',
+    title: '发送速率',
+    dataIndex: 'y2',
+    key: 'y2',
     align: 'center',
 }, {
-    title: '描述',
-    dataIndex: 'describe',
-    key: 'describe',
+    title: '时间',
+    dataIndex: 'x',
+    key: 'x',
     align: 'center',
 }]
 
+
+
+
+
 @Form.create()
-class Software extends React.Component {
+class Network extends React.Component {
     constructor() {
         super()
         this.state = {
@@ -59,12 +64,14 @@ class Software extends React.Component {
 
 
     componentDidMount() {
-        const { dispatch, form,location } = this.props;
-        const { query } = location;
+        const { dispatch, location } = this.props;
+        const { query } = location; // 路由参数 无参数时query={}
         dispatch({
-            type:'software/fetchSoftware',
-            payload:query.id ? query : null,
-        })
+            type:'network/fetchNetwork',
+            payload: {
+                id: query.id ? query.id : null,
+            }
+        });
     }
 
     //下拉列表
@@ -80,11 +87,11 @@ class Software extends React.Component {
     changeEquipment=(e,id)=>{
         const { dispatch } = this.props;
         dispatch({
-            type:'software/fetchSoftware',
-            payload:{
-                id
+            type: 'network/fetchNetwork',
+            payload: {
+                id,
             }
-        })
+        });
     }
 
 
@@ -97,16 +104,18 @@ class Software extends React.Component {
                         {defaultEquipment} <Icon type="down" />
                     </Button>
                 </Dropdown>
+                <TimelineChart data={data} titleMap={{ y1: '接受速率', y2: '转化速率' }} height={400}/>
+                <br/>
                 <Table columns={columns()} dataSource={data} />
             </Card>
         );
     }
 }
 
-const mapStateToProps = ({ software }) => ({
-    data: software.data,
-    equipmentData: software.equipment,
-    defaultEquipment:software.defaultEquipment
+const mapStateToProps = ({ network }) => ({
+    data: network.data,
+    equipmentData: network.equipment,
+    defaultEquipment:network.defaultEquipment
 });
 
-export default connect(mapStateToProps)(Software);
+export default connect(mapStateToProps)(Network);

@@ -22,18 +22,13 @@ const columns = () => [{
     dataIndex: 'createtime',
     key: 'logintime',
     align: 'center',
-}, {
-    title: '登出时间',
-    dataIndex: 'last_time',
-    key: 'last_time',
-    align: 'center',
 },{
     title: '登陆ip',
     dataIndex: 'ipaddress',
     key: 'ipaddress',
     align: 'center',
 },{
-    title: '登陆端口',
+    title: '登陆终端',
     dataIndex: 'port',
     key: 'port',
     align: 'center',

@@ -33,12 +33,12 @@ const columns = () => [{
     key: 'ipaddress',
     align: 'center',
 },{
-    title: 'port',
+    title: '登陆端口',
     dataIndex: 'port',
     key: 'port',
     align: 'center',
 }, {
-    title: 'state',
+    title: '登陆方式',
     dataIndex: 'state',
     key: 'state',
     align: 'center',

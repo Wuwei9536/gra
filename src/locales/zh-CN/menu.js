@@ -3,7 +3,7 @@ export default {
   'menu.login': '登录',
   'menu.register': '注册',
   'menu.register.result': '注册结果',
-  'menu.dashboard': 'Dashboard',
+  'menu.dashboard': '资源监控',
   'menu.dashboard.analysis': '分析页',
   'menu.dashboard.monitor': '监控页',
   'menu.dashboard.workplace': '工作台',
@@ -54,4 +54,7 @@ export default {
   'menu.individual': '个人中心',
   'menu.individual.info': '个人信息设置',
   'menu.individual.password': '密码设置',
+  'menu.log': '日志管理',
+  'menu.log.loginlog': '学生用户登陆日志',
+  
 };

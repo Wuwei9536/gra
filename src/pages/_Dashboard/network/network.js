@@ -67,7 +67,7 @@ class Network extends React.Component {
         const { dispatch, location } = this.props;
         const { query } = location; // 路由参数 无参数时query={}
         dispatch({
-            type:'network/fetchNetwork',
+            type: 'network/fetchNetwork',
             payload: {
                 id: query.id ? query.id : null,
             }
@@ -76,15 +76,15 @@ class Network extends React.Component {
 
     //下拉列表
     menu = () => {
-        const {equipmentData} = this.props;
+        const { equipmentData } = this.props;
         return (
             <Menu>
-                {equipmentData.map((item, index) => <Menu.Item key={item.key} onClick={(e)=>this.changeEquipment(e,item.key)}><Icon type="user" />{item.name}</Menu.Item>)}
+                {equipmentData.map((item, index) => <Menu.Item key={item.key} onClick={(e) => this.changeEquipment(e, item.key)}><Icon type="user" />{item.name}</Menu.Item>)}
             </Menu>
         )
     }
 
-    changeEquipment=(e,id)=>{
+    changeEquipment = (e, id) => {
         const { dispatch } = this.props;
         dispatch({
             type: 'network/fetchNetwork',
@@ -96,7 +96,7 @@ class Network extends React.Component {
 
 
     render() {
-        const { data ,defaultEquipment} = this.props;
+        const { data, defaultEquipment } = this.props;
         return (
             <Card bordered={false}>
                 <Dropdown overlay={this.menu()}>
@@ -104,8 +104,8 @@ class Network extends React.Component {
                         {defaultEquipment} <Icon type="down" />
                     </Button>
                 </Dropdown>
-                <TimelineChart data={data} titleMap={{ y1: '接受速率', y2: '转化速率' }} height={400}/>
-                <br/>
+                <TimelineChart data={data} titleMap={{ y1: '接受速率', y2: '转化速率' }} height={400} />
+                <br />
                 <Table columns={columns()} dataSource={data} />
             </Card>
         );
@@ -115,7 +115,7 @@ class Network extends React.Component {
 const mapStateToProps = ({ network }) => ({
     data: network.data,
     equipmentData: network.equipment,
-    defaultEquipment:network.defaultEquipment
+    defaultEquipment: network.defaultEquipment
 });
 
 export default connect(mapStateToProps)(Network);

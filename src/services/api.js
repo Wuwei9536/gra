@@ -257,3 +257,8 @@ export async function fetchNetwork(params) {
 export async function logout() {
   return request('/api/logout');
   }
+
+  // 登陆日志
+export async function getLoginLog() {
+  return request('/api/loginlog');
+  }

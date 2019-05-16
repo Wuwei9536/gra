@@ -7,7 +7,9 @@ import {
     Dropdown,
     Menu,
     Table,
-    Tag
+    Tag,
+    Row,
+    Col
 } from 'antd';
 import {
     Chart,
@@ -75,7 +77,7 @@ class Cpu extends React.Component {
         });
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         const { dispatch } = this.props;
         dispatch({
             type: 'cpu/setPercent',
@@ -117,7 +119,7 @@ class Cpu extends React.Component {
 
     // 点击下拉列表选择设备
     changeEquipment = (e, id) => {
-        const { dispatch,location } = this.props;
+        const { dispatch, location } = this.props;
         const { pathname } = location; // 路由参数 无参数时query={}
         dispatch({
             type: 'cpu/fetchCpuData',
@@ -163,18 +165,22 @@ class Cpu extends React.Component {
                         <Geom type="line" position="time*cpu" size={2} />
                     </Chart>
                 </div>
-                <div className={style.tableWaterWave}>
-                    {percent ?
-                        <div style={{ textAlign: 'center' }}>
-                            <WaterWave
-                                height={261}
-                                title={waveTitle}
-                                percent={percent}
-                                className={style.waterWave}
-                            />
-                        </div> : null}
-                    <Table columns={columns} dataSource={data} pagination={{ pageSize: 6 }} className={style.table} />
-                </div>
+                <Row className={style.tableWaterWave}>
+                    <Col md={12} sm={24} className={style.waterWave}>
+                        {percent ?
+                            <div style={{ textAlign: 'center' }}>
+                                <WaterWave
+                                    height={261}
+                                    title={waveTitle}
+                                    percent={percent}
+                                    // className={style.waterWave}
+                                />
+                            </div> : null}
+                    </Col>
+                    <Col md={12} sm={24}>
+                        <Table columns={columns} dataSource={data} pagination={{ pageSize: 6 }} className={style.table} />
+                    </Col>
+                </Row>
             </Card>
         )
     }

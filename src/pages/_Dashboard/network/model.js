@@ -1,20 +1,34 @@
-import { fetchNetwork, fetchEquipmentData } from '@/services/api';
+import {
+  fetchNetwork,
+  fetchEquipmentData
+} from '@/services/api';
 
 export default {
   namespace: 'network',
 
   state: {
-    data: [{x:null}],
+    data: [{
+      x: null
+    }],
     equipment: [],
     defaultEquipment: '',
   },
 
   effects: {
-    *fetchNetwork({ payload }, { call, put }) {
+    * fetchNetwork({
+      payload
+    }, {
+      call,
+      put
+    }) {
       const equipment = yield call(fetchEquipmentData, {}); //获取设备列表
-      const { id } = payload;
+      const {
+        id
+      } = payload;
       if (!id) { //如果路由没有参数
-        payload = { id: equipment[0].key } //参数就等于设备列表第一个的id
+        payload = {
+          id: equipment[0].key
+        } //参数就等于设备列表第一个的id
         yield put({ //设备默认显示设备为设备列表第一个
           type: 'setDefaultEquipment',
           payload: equipment[0].name
@@ -30,12 +44,14 @@ export default {
         }
       }
       const response = yield call(fetchNetwork, payload);
-      let resData = [{x:null}]
+      let resData = [{
+        x: null
+      }]
       if (response.length > 0) {
-        resData = response.map(item=>({
-          x:item.create_time,
-          y1:item.receive_speed,
-          y2:item.transmit_speed
+        resData = response.map(item => ({
+          x: item.create_time,
+          y1: item.receive_speed,
+          y2: item.transmit_speed
         }))
       }
       yield put({
@@ -50,19 +66,25 @@ export default {
   },
 
   reducers: {
-    setNetworkDate(state, { payload }) {
+    setNetworkDate(state, {
+      payload
+    }) {
       return {
         ...state,
         data: payload,
       };
     },
-    setEquipmentData(state, { payload }) {
+    setEquipmentData(state, {
+      payload
+    }) {
       return {
         ...state,
         equipment: payload
       };
     },
-    setDefaultEquipment(state, { payload }) {
+    setDefaultEquipment(state, {
+      payload
+    }) {
       return {
         ...state,
         defaultEquipment: payload

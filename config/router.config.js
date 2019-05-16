@@ -100,6 +100,18 @@ export default [
         ]
       },
       {
+        path: '/log',
+        name: 'log',
+        icon: 'profile',
+        routes: [
+          {
+            path: '/log/loginlog',
+            name: 'loginlog',
+            component: './_Log/loginlog/loginlog.js',
+          },
+        ]
+      },
+      {
         component: '404',
       },
     ],

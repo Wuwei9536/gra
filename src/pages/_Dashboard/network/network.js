@@ -34,12 +34,12 @@ const RadioGroup = Radio.Group;
 
 
 const columns = () => [{
-    title: '接受速率',
+    title: '接受速率--kB/s',
     dataIndex: 'y1',
     key: 'y2',
     align: 'center',
 }, {
-    title: '发送速率',
+    title: '发送速率--kB/s',
     dataIndex: 'y2',
     key: 'y2',
     align: 'center',
@@ -104,7 +104,7 @@ class Network extends React.Component {
                         {defaultEquipment} <Icon type="down" />
                     </Button>
                 </Dropdown>
-                <TimelineChart data={data} titleMap={{ y1: '接受速率', y2: '转化速率' }} height={400} />
+                <TimelineChart data={data} titleMap={{ y1: '接受速率--kB/s', y2: '转化速率--kB/s' }} height={400} />
                 <br />
                 <Table columns={columns()} dataSource={data} />
             </Card>

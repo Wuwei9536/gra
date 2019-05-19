@@ -53,7 +53,7 @@ export default {
         resData = response.map((item) => ({
           key: item.id,
           time: item.create_time,
-          cpu: item.usage,
+          cpu: Number(item.usage),
           cpuPercent: item.usage + '%',
           tableTime: new Date(item.create_time).toLocaleTimeString()
         }))

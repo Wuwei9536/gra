@@ -50,8 +50,8 @@ export default {
       if (response.length > 0) {
         resData = response.map(item => ({
           x: item.create_time,
-          y1: item.receive_speed,
-          y2: item.transmit_speed
+          y1: Number(item.receive_speed.replace(/kB\/s/,'')),
+          y2: Number(item.transmit_speed.replace(/kB\/s/,''))
         }))
       }
       yield put({

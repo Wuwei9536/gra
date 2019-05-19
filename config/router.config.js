@@ -105,6 +105,11 @@ export default [
         icon: 'profile',
         routes: [
           {
+            path: '/log/sysloginlog',
+            name: 'sysloginlog',
+            component: './_Log/loginlog/loginlog.js',
+          },
+          {
             path: '/log/loginlog',
             name: 'loginlog',
             component: './_Log/loginlog/loginlog.js',

@@ -262,3 +262,9 @@ export async function logout() {
 export async function getLoginLog() {
   return request('/api/loginlog');
   }
+
+    // 系统登陆日志
+export async function getSysLoginLog() {
+  return request('/api/sysloginlog');
+  }
+

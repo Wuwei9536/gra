@@ -12,7 +12,7 @@ import styles from './loginlog.less';
 
 
 
-const columns = () => [{
+const stuColumns = () => [{
     title: '登陆用户',
     dataIndex: 'loginname',
     key: 'loginname',
@@ -20,7 +20,7 @@ const columns = () => [{
 }, {
     title: '登陆时间',
     dataIndex: 'createtime',
-    key: 'logintime',
+    key: 'createtime',
     align: 'center',
 },{
     title: '登陆ip',
@@ -40,21 +40,62 @@ const columns = () => [{
 }]
 
 
-
+const sysColumns = () => [{
+    title: '登陆邮箱',
+    dataIndex: 'loginEmail',
+    key: 'loginEmail',
+    align: 'center',
+}, {
+    title: '登陆密码',
+    dataIndex: 'password',
+    key: 'password',
+    align: 'center',
+},{
+    title: '登陆ip',
+    dataIndex: 'ip',
+    key: 'ip',
+    align: 'center',
+},{
+    title: '登陆时间',
+    dataIndex: 'create_time',
+    key: 'create_time',
+    align: 'center',
+}, {
+    title: '登陆状态',
+    dataIndex: 'state',
+    key: 'state',
+    align: 'center',
+}]
 
 
 @Form.create()
 class Loginlog extends React.Component {
+    constructor(){
+        super()
+        this.state={
+            columns:()=>[]
+        }
+    }
     componentDidMount() {
-        const { dispatch } = this.props;
-        dispatch({
-            type:'loginlog/getLoginLog',
-        });
+        const { dispatch, location } = this.props;
+        const { pathname } = location; // 路由参数 无参数时query={}
+        if(pathname=='/log/loginlog'){
+            this.setState({columns:stuColumns})
+            dispatch({
+                type:'loginlog/getLoginLog',
+            });
+        }else{
+            this.setState({columns:sysColumns})
+            dispatch({
+                type:'loginlog/getSysLoginLog',
+            });
+        }
     }
 
 
     render() {
         const { data } = this.props;
+        const { columns } = this.state;
         return (
             <Card bordered={false}>
                 <Table columns={columns()} dataSource={data} />

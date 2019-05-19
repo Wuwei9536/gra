@@ -24,11 +24,11 @@ self.__precacheManifest = [
     "url": "/static/njit.729bc9bc.png"
   },
   {
-    "revision": "f51ba9646b4b34745592",
+    "revision": "065db1265e81547fd8ac",
     "url": "/umi.js"
   },
   {
-    "revision": "f51ba9646b4b34745592",
+    "revision": "065db1265e81547fd8ac",
     "url": "/umi.css"
   },
   {
@@ -36,7 +36,7 @@ self.__precacheManifest = [
     "url": "/vendors.async.js"
   },
   {
-    "revision": "c59871f704a304a809a1",
+    "revision": "f1ae90342d1cea83ea18",
     "url": "/p___Individual__Settings__model.js.async.js"
   },
   {
@@ -56,11 +56,11 @@ self.__precacheManifest = [
     "url": "/p__User__RegisterResult.async.js"
   },
   {
-    "revision": "61cbf3a852a7ccbd218c",
+    "revision": "cffd5d9c8323ace8a602",
     "url": "/p__User__models__register.js.async.js"
   },
   {
-    "revision": "816d643264d79d58d792",
+    "revision": "664f01a4e83e07bf4568",
     "url": "/p___Account__student__model.js.async.js"
   },
   {
@@ -72,7 +72,7 @@ self.__precacheManifest = [
     "url": "/p___Account__student__student.async.js"
   },
   {
-    "revision": "19b13f1a305b8a04f133",
+    "revision": "b936bf7a5167477ecc64",
     "url": "/p___Account__system__model.js.async.js"
   },
   {
@@ -92,7 +92,7 @@ self.__precacheManifest = [
     "url": "/p___Dashboard__cpu__cpu.async.js"
   },
   {
-    "revision": "767b143a84a8a5c52b42",
+    "revision": "d1da094c94a68ede5076",
     "url": "/p___Dashboard__cpu__model.js.async.js"
   },
   {
@@ -104,11 +104,11 @@ self.__precacheManifest = [
     "url": "/p___Dashboard__equipment__equipment.async.js"
   },
   {
-    "revision": "1336bba5452ae9ebd2d5",
+    "revision": "8f40597d6cf3ea5c5115",
     "url": "/p___Dashboard__equipment__model.js.async.js"
   },
   {
-    "revision": "3cf9f03d61f4be5b6dda",
+    "revision": "40776272e01aa8bec7df",
     "url": "/p___Dashboard__network__model.js.async.js"
   },
   {
@@ -116,7 +116,7 @@ self.__precacheManifest = [
     "url": "/p__User__Login.chunk.css"
   },
   {
-    "revision": "7d5a1f5bdf3420ff7f19",
+    "revision": "50a67a5a6918fe129bba",
     "url": "/p___Log__loginlog__model.js.async.js"
   },
   {
@@ -132,16 +132,16 @@ self.__precacheManifest = [
     "url": "/p__User__Register.chunk.css"
   },
   {
-    "revision": "f00e175706233607247f",
+    "revision": "b2311ebbc9a32aed9782",
     "url": "/p___Log__loginlog__loginlog.chunk.css"
   },
   {
-    "revision": "f00e175706233607247f",
+    "revision": "b2311ebbc9a32aed9782",
     "url": "/p___Log__loginlog__loginlog.async.js"
   },
   {
-    "revision": "191d7c7262c8bf540dd6e4be8f51f0eb",
-    "url": "/ggeditor/koni/icon.svg"
+    "revision": "da6cdb8a317f5384fa159cde1f33b0f0",
+    "url": "/ggeditor/flow/start.svg"
   },
   {
     "revision": "13a50cba723444df6180",
@@ -164,16 +164,16 @@ self.__precacheManifest = [
     "url": "/layouts__UserLayout.chunk.css"
   },
   {
-    "revision": "bb1fde8c0c658093c0c283f313069467",
-    "url": "/ggeditor/koni/bank.svg"
+    "revision": "191d7c7262c8bf540dd6e4be8f51f0eb",
+    "url": "/ggeditor/koni/icon.svg"
   },
   {
     "revision": "13a50cba723444df6180",
     "url": "/layouts__BasicLayout.async.js"
   },
   {
-    "revision": "c23aa881b8d0e959f6c0aeb5ae7e4baa",
-    "url": "/icons/icon-192x192.png"
+    "revision": "bb1fde8c0c658093c0c283f313069467",
+    "url": "/ggeditor/koni/bank.svg"
   },
   {
     "revision": "4b830a83cee49f0c84c35f2a6a083378",
@@ -184,8 +184,12 @@ self.__precacheManifest = [
     "url": "/icons/icon-512x512.png"
   },
   {
-    "revision": "da6cdb8a317f5384fa159cde1f33b0f0",
-    "url": "/ggeditor/flow/start.svg"
+    "revision": "7db0da6a572c4d946d955e42d8268844",
+    "url": "/ggeditor/flow/normal.svg"
+  },
+  {
+    "revision": "347329d0982682b42d40c8162817a940",
+    "url": "/icons/icon-128x128.png"
   },
   {
     "revision": "0036cca03a82d851933f5e4b5789caaa",
@@ -196,12 +200,8 @@ self.__precacheManifest = [
     "url": "/ggeditor/koni/country.svg"
   },
   {
-    "revision": "347329d0982682b42d40c8162817a940",
-    "url": "/icons/icon-128x128.png"
-  },
-  {
-    "revision": "7db0da6a572c4d946d955e42d8268844",
-    "url": "/ggeditor/flow/normal.svg"
+    "revision": "c23aa881b8d0e959f6c0aeb5ae7e4baa",
+    "url": "/icons/icon-192x192.png"
   },
   {
     "revision": "7e8663d516fab38eff38b94b08da5d76",

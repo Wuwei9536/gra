@@ -72,8 +72,18 @@ class Network extends React.Component {
                 id: query.id ? query.id : null,
             }
         });
+        this.interval = setInterval(() => dispatch({
+            type: 'network/fetchNetwork',
+            payload: {
+                id: query.id ? query.id : null,
+            }
+        }), 3000)
     }
 
+    componentWillUnmount() {
+        clearInterval(this.interval)
+    }
+    
     //下拉列表
     menu = () => {
         const { equipmentData } = this.props;

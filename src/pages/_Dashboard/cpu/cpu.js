@@ -74,7 +74,14 @@ class Cpu extends React.Component {
                 id: query.id ? query.id : null,
                 pathname
             }
-        });
+        })
+        this.interval = setInterval(() => dispatch({
+            type: 'cpu/fetchCpuData',
+            payload: {
+                id: query.id ? query.id : null,
+                pathname
+            }
+        }),3000)
     }
 
     componentWillUnmount() {
@@ -83,6 +90,7 @@ class Cpu extends React.Component {
             type: 'cpu/setPercent',
             payload: null
         });
+        clearInterval(this.interval);
     }
 
     judgeRoute = (pathname) => {
@@ -173,7 +181,7 @@ class Cpu extends React.Component {
                                     height={261}
                                     title={waveTitle}
                                     percent={percent}
-                                    // className={style.waterWave}
+                                // className={style.waterWave}
                                 />
                             </div> : null}
                     </Col>

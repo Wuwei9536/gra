@@ -1,14 +1,13 @@
 import React from 'react';
 import { connect } from 'dva';
 import reqwest from 'reqwest';
-import { formatMessage, FormattedMessage } from 'umi-plugin-react/locale';
+import { formatMessage } from 'umi-plugin-react/locale';
 import {
   Row,
   Col,
   Card,
   Form,
   Input,
-  Select,
   Icon,
   Button,
   Modal,
@@ -22,7 +21,6 @@ import {
 import styles from './student.less';
 
 const FormItem = Form.Item;
-const { Option } = Select;
 
 const columns = (deleteSystemUser, showModal) => [{
   title: '姓名',

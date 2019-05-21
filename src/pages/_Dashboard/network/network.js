@@ -1,36 +1,16 @@
-import React, { PureComponent, Fragment } from 'react';
+import React from 'react';
 import { connect } from 'dva';
-import moment from 'moment';
-import router from 'umi/router';
 import {
-    Row,
-    Col,
     Card,
     Form,
-    Input,
-    Select,
     Icon,
     Button,
     Dropdown,
     Menu,
-    InputNumber,
-    DatePicker,
-    Modal,
-    message,
-    Badge,
-    Divider,
-    Steps,
-    Radio,
     Table,
-    Tag,
 } from 'antd';
 import styles from './network.less';
 import TimelineChart from '../../../components/Charts/TimelineChart'
-const FormItem = Form.Item;
-const { Step } = Steps;
-const { TextArea } = Input;
-const { Option } = Select;
-const RadioGroup = Radio.Group;
 
 
 const columns = () => [{
@@ -84,7 +64,7 @@ class Network extends React.Component {
         clearInterval(this.interval)
     }
     
-    //下拉列表
+    // 下拉列表
     menu = () => {
         const { equipmentData } = this.props;
         return (

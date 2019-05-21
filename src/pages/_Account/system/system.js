@@ -1,13 +1,12 @@
 import React from 'react';
 import { connect } from 'dva';
-import { formatMessage, FormattedMessage } from 'umi-plugin-react/locale';
+import { formatMessage } from 'umi-plugin-react/locale';
 import {
   Row,
   Col,
   Card,
   Form,
   Input,
-  Select,
   Icon,
   Button,
   Modal,
@@ -21,7 +20,6 @@ import reqwest from 'reqwest';
 import styles from './system.less';
 
 const FormItem = Form.Item;
-const { Option } = Select;
 
 
 

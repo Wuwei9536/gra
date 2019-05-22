@@ -57,4 +57,5 @@ export default {
   'menu.log': '日志管理',
   'menu.log.loginlog': '学生用户登陆日志',
   'menu.log.sysloginlog': '系统用户登陆日志',  
+  'menu.account.linux': 'Linux用户',  
 };

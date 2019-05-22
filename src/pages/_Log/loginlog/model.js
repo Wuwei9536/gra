@@ -1,4 +1,4 @@
-import { getLoginLog,getSysLoginLog } from '@/services/api';
+import { getLoginLog,getSysLoginLog,getLinux } from '@/services/api';
 
 export default {
   namespace: 'loginlog',
@@ -17,6 +17,13 @@ export default {
     },
     *getSysLoginLog({ payload }, { call,put }) {
       const res = yield call(getSysLoginLog);
+      yield put({
+        type:'setLoginlog',
+        payload:res
+      })
+    },
+    *getLinux({ payload }, { call,put }) {
+      const res = yield call(getLinux);
       yield put({
         type:'setLoginlog',
         payload:res

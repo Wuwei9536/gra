@@ -71,6 +71,11 @@ export default [
             name: 'student',
             component: './_Account/student/student.js',
           },
+          {
+            path: '/account/linux',
+            name: 'linux',
+            component: './_Log/loginlog/loginlog.js',
+          },
         ]
       },
       {

@@ -239,7 +239,7 @@ export async function updateEquipment(params) {
 }
 
 // 发送注册邮件
-export async function sendRegisterEmail(params){
+export async function sendRegisterEmail(params) {
   return request('/api/registeremail', {
     method: 'POST',
     data: params,
@@ -250,21 +250,26 @@ export async function sendRegisterEmail(params){
 // 网络
 export async function fetchNetwork(params) {
   return request(`/api/getnetwork?${stringify(params)}`);
-  }
+}
 
 // 登出
 
 export async function logout() {
   return request('/api/logout');
-  }
+}
 
-  // 登陆日志
+// 登陆日志
 export async function getLoginLog() {
   return request('/api/loginlog');
-  }
+}
 
-    // 系统登陆日志
+// 系统登陆日志
 export async function getSysLoginLog() {
   return request('/api/sysloginlog');
-  }
+}
+
+// linux用户
+export async function getLinux() {
+  return request('/api/getlinux');
+}
 

@@ -64,6 +64,38 @@ const sysColumns = () => [{
     align: 'center',
 }]
 
+const linuxColumns = () => [{
+    title: '账号名',
+    dataIndex: 'logname',
+    key: 'logname',
+    align: 'center',
+}, {
+    title: '用户组',
+    dataIndex: 'groupa',
+    key: 'groupa',
+    align: 'center',
+},{
+    title: '目录',
+    dataIndex: 'directory',
+    key: 'directory',
+    align: 'center',
+},{
+    title: '状态',
+    dataIndex: 'state',
+    key: 'state',
+    align: 'center',
+}, {
+    title: '用户配额',
+    dataIndex: 'userspace',
+    key: 'userspace',
+    align: 'center',
+},{
+    title: '使用配额',
+    dataIndex: 'used',
+    key: 'used',
+    align: 'center',
+}]
+
 
 @Form.create()
 class Loginlog extends React.Component {
@@ -81,10 +113,15 @@ class Loginlog extends React.Component {
             dispatch({
                 type:'loginlog/getLoginLog',
             });
-        }else{
+        }else if(pathname=='log/sysloginlog'){
             this.setState({columns:sysColumns})
             dispatch({
                 type:'loginlog/getSysLoginLog',
+            });
+        }else{
+            this.setState({columns:linuxColumns})
+            dispatch({
+                type:'loginlog/getLinux',
             });
         }
     }

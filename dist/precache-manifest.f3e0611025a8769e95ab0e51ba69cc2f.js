@@ -24,11 +24,11 @@ self.__precacheManifest = [
     "url": "/static/njit.729bc9bc.png"
   },
   {
-    "revision": "a2e68737c479e92844c9",
+    "revision": "4e1bcc7545fa14c6f64f",
     "url": "/umi.js"
   },
   {
-    "revision": "a2e68737c479e92844c9",
+    "revision": "4e1bcc7545fa14c6f64f",
     "url": "/umi.css"
   },
   {
@@ -36,7 +36,7 @@ self.__precacheManifest = [
     "url": "/vendors.async.js"
   },
   {
-    "revision": "f1ae90342d1cea83ea18",
+    "revision": "96d349f597cf6785ec4f",
     "url": "/p___Individual__Settings__model.js.async.js"
   },
   {
@@ -56,11 +56,11 @@ self.__precacheManifest = [
     "url": "/p__User__RegisterResult.async.js"
   },
   {
-    "revision": "cffd5d9c8323ace8a602",
+    "revision": "fdd5797effbf37f7afd0",
     "url": "/p__User__models__register.js.async.js"
   },
   {
-    "revision": "664f01a4e83e07bf4568",
+    "revision": "da443fb31135f7b1c653",
     "url": "/p___Account__student__model.js.async.js"
   },
   {
@@ -72,7 +72,7 @@ self.__precacheManifest = [
     "url": "/p___Account__student__student.async.js"
   },
   {
-    "revision": "b936bf7a5167477ecc64",
+    "revision": "f66a12a548752a4928d9",
     "url": "/p___Account__system__model.js.async.js"
   },
   {
@@ -92,7 +92,7 @@ self.__precacheManifest = [
     "url": "/p___Dashboard__cpu__cpu.async.js"
   },
   {
-    "revision": "d1da094c94a68ede5076",
+    "revision": "8a5730f24618b251a861",
     "url": "/p___Dashboard__cpu__model.js.async.js"
   },
   {
@@ -104,11 +104,11 @@ self.__precacheManifest = [
     "url": "/p___Dashboard__equipment__equipment.async.js"
   },
   {
-    "revision": "8f40597d6cf3ea5c5115",
+    "revision": "e014b1142d2bc55044d4",
     "url": "/p___Dashboard__equipment__model.js.async.js"
   },
   {
-    "revision": "40776272e01aa8bec7df",
+    "revision": "e6fc0a9770c17e96ea60",
     "url": "/p___Dashboard__network__model.js.async.js"
   },
   {
@@ -116,7 +116,7 @@ self.__precacheManifest = [
     "url": "/p__User__Login.chunk.css"
   },
   {
-    "revision": "50a67a5a6918fe129bba",
+    "revision": "40972a8159772ad0046e",
     "url": "/p___Log__loginlog__model.js.async.js"
   },
   {
@@ -132,16 +132,16 @@ self.__precacheManifest = [
     "url": "/p__User__Register.chunk.css"
   },
   {
-    "revision": "a19e4942f09a911f8f05",
+    "revision": "7e9887fbf46c1fefc25b",
     "url": "/p___Log__loginlog__loginlog.chunk.css"
   },
   {
-    "revision": "a19e4942f09a911f8f05",
+    "revision": "7e9887fbf46c1fefc25b",
     "url": "/p___Log__loginlog__loginlog.async.js"
   },
   {
-    "revision": "7db0da6a572c4d946d955e42d8268844",
-    "url": "/ggeditor/flow/normal.svg"
+    "revision": "5b76a22dfbcc5c776e99cb817c3d36ea",
+    "url": "/ggeditor/flow/decision.svg"
   },
   {
     "revision": "13a50cba723444df6180",
@@ -164,36 +164,24 @@ self.__precacheManifest = [
     "url": "/layouts__UserLayout.chunk.css"
   },
   {
-    "revision": "191d7c7262c8bf540dd6e4be8f51f0eb",
-    "url": "/ggeditor/koni/icon.svg"
+    "revision": "c23aa881b8d0e959f6c0aeb5ae7e4baa",
+    "url": "/icons/icon-192x192.png"
   },
   {
     "revision": "13a50cba723444df6180",
     "url": "/layouts__BasicLayout.async.js"
   },
   {
-    "revision": "bb1fde8c0c658093c0c283f313069467",
-    "url": "/ggeditor/koni/bank.svg"
+    "revision": "f161daaf3b30acfccfae4f38099c2161",
+    "url": "/ggeditor/koni/country.svg"
   },
   {
     "revision": "4b830a83cee49f0c84c35f2a6a083378",
     "url": "/index.html"
   },
   {
-    "revision": "f161daaf3b30acfccfae4f38099c2161",
-    "url": "/ggeditor/koni/country.svg"
-  },
-  {
-    "revision": "7e8663d516fab38eff38b94b08da5d76",
-    "url": "/ggeditor/flow/model.svg"
-  },
-  {
-    "revision": "5661ce8e2472d2727e8fd0390b22ba37",
-    "url": "/icons/icon-512x512.png"
-  },
-  {
-    "revision": "c23aa881b8d0e959f6c0aeb5ae7e4baa",
-    "url": "/icons/icon-192x192.png"
+    "revision": "bb1fde8c0c658093c0c283f313069467",
+    "url": "/ggeditor/koni/bank.svg"
   },
   {
     "revision": "da6cdb8a317f5384fa159cde1f33b0f0",
@@ -204,12 +192,24 @@ self.__precacheManifest = [
     "url": "/icons/icon-128x128.png"
   },
   {
+    "revision": "5661ce8e2472d2727e8fd0390b22ba37",
+    "url": "/icons/icon-512x512.png"
+  },
+  {
     "revision": "0036cca03a82d851933f5e4b5789caaa",
     "url": "/ggeditor/koni/person.svg"
   },
   {
-    "revision": "5b76a22dfbcc5c776e99cb817c3d36ea",
-    "url": "/ggeditor/flow/decision.svg"
+    "revision": "191d7c7262c8bf540dd6e4be8f51f0eb",
+    "url": "/ggeditor/koni/icon.svg"
+  },
+  {
+    "revision": "7db0da6a572c4d946d955e42d8268844",
+    "url": "/ggeditor/flow/normal.svg"
+  },
+  {
+    "revision": "7e8663d516fab38eff38b94b08da5d76",
+    "url": "/ggeditor/flow/model.svg"
   },
   {
     "revision": "729bc9bcc83ae5fadccfb3cdacd81e11",

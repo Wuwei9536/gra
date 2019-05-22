@@ -76,12 +76,20 @@ class Network extends React.Component {
 
     changeEquipment = (e, id) => {
         const { dispatch } = this.props;
+        clearInterval(this.interval)
+
         dispatch({
             type: 'network/fetchNetwork',
             payload: {
                 id,
             }
         });
+        this.interval = setInterval(() => dispatch({
+            type: 'network/fetchNetwork',
+            payload: {
+                id,
+            }
+        }), 3000)
     }
 
 

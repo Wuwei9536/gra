@@ -129,6 +129,8 @@ class Cpu extends React.Component {
     changeEquipment = (e, id) => {
         const { dispatch, location } = this.props;
         const { pathname } = location; // 路由参数 无参数时query={}
+        clearInterval(this.interval);
+
         dispatch({
             type: 'cpu/fetchCpuData',
             payload: {
@@ -136,6 +138,13 @@ class Cpu extends React.Component {
                 pathname
             }
         });
+        this.interval = setInterval(() => dispatch({
+            type: 'cpu/fetchCpuData',
+            payload: {
+                id,
+                pathname
+            }
+        }),3000);
         dispatch({
             type: 'cpu/setPercent',
             payload: null

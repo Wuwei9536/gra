@@ -113,7 +113,7 @@ class Loginlog extends React.Component {
             dispatch({
                 type:'loginlog/getLoginLog',
             });
-        }else if(pathname=='log/sysloginlog'){
+        }else if(pathname=='/log/sysloginlog'){
             this.setState({columns:sysColumns})
             dispatch({
                 type:'loginlog/getSysLoginLog',
